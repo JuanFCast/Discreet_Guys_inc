@@ -1,16 +1,10 @@
 package model;
 
-public class NodeV<K, V> {
+public class NodeV<T> {
 
-    private K key;
-    private V value;
+    private T name;
 
-    private NodeV<K, V> up;
-    private NodeV<K, V> down;
-
-    public NodeV(K key, V value){
-        this.key = key;
-        this.value = value;
+    public NodeV(T name){
         up = null;
         down = null;
     }
