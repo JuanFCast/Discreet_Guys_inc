@@ -1,34 +1,34 @@
 package model;
 
-public class NodeH<K, V> {
+public class NodeH<T> {
 
-    private K key;
-    private V value;
+    private T value;
 
-    private NodeV<K, V> next;
-    private NodeV<K, V> previous;
+    private NodeH<T> next;
+    private NodeH<T> prev;
 
-    public NodeH(K key, V value){
-        this.key = key;
-        this.value = value;
+    //Construct
+    public NodeH(T v){
+        value = v;
         next = null;
-        previous = null;
+        prev = null;
     }
 
-    public NodeV<K, V> getPrevious() {
-        return previous;
+    //Getters & Setters
+    public T getValue(){
+        return value;
     }
-
-    public void setPrevious(NodeV<K, V> previous) {
-        this.previous = previous;
+    public NodeH<T> getPrev() {
+        return prev;
     }
-
-    public NodeV<K, V> getNext() {
+    public void setPrev(NodeH<T> p) {
+        prev = p;
+    }
+    public NodeH<T> getNext() {
         return next;
     }
-
-    public void setNext(NodeV<K, V> next) {
-        this.next = next;
+    public void setNext(NodeH<T> n) {
+        next = n;
     }
 
 }

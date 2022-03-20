@@ -1,18 +1,14 @@
 package model;
 
 public class LinkedList<T> {
-    private NodeH<K, V> head;
-    private int size;
+    private NodeH<T> head;
 
-    public LinkedList{
+    public LinkedList(){
         head = null;
-        size = 0;
     }
 
-    public NodeH<K, V> getHead() {
+    public NodeH<T> getHead() {
         return head;
     }
-
-
 
 }
