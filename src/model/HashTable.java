@@ -2,9 +2,10 @@ package model;
 
 public class HashTable<K, V> {
     
-    private int MAX_SIZE = 23;
+    private final int MAX_SIZE = 23;
     private TVLinkedList<K, V> table[]; 
 
+    
     public HashTable(){
        table = (TVLinkedList<K, V>[]) new TVLinkedList<?,?>[MAX_SIZE];
        for (int i = 0; i < MAX_SIZE; i++) {
