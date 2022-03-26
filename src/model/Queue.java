@@ -1,6 +1,6 @@
 package model;
 
-import model.Interface.IQueue;
+import Interface.IQueue;
 
 //Basado en el codigo del video: https://www.youtube.com/watch?v=V5hK2T898q8&list=WL&index=33
 
@@ -10,6 +10,7 @@ public class Queue<T> implements IQueue<T>{
 	private int size;
 	private T queue[];
 
+	@SuppressWarnings("unchecked")
 	public Queue(int m){
 		size = m;
 		last = -1;
@@ -45,7 +46,7 @@ public class Queue<T> implements IQueue<T>{
 	@Override
 	public T peek() {
 		if(last==-1){
-			return null
+			return null;
 		}else{
 			return queue[0];
 		}

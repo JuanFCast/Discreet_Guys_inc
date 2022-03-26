@@ -8,19 +8,20 @@ public class Stack<T> {
     private int current;
     private T stack[];
 
+    @SuppressWarnings("unchecked")
     public Stack(int m){
         size = m;
         current = 0;
         stack = (T[]) new Object[size];
     }
 
-    private void push(T e){
+    public void push(T e){
         if(current<size){
             stack[current++] = e;
         }
     }
 
-    private T pop(){
+    public T pop(){
         if(!empty()){
             return stack[--current];
         }else{
@@ -32,7 +33,7 @@ public class Stack<T> {
         return current==0;
     }
 
-    private T peek(){
+    public T peek(){
         if(empty()){
             return null;
         }else{

@@ -1,4 +1,4 @@
-package model.Interface;
+package Interface;
 
 public interface IQueue<T> {
 	

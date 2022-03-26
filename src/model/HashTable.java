@@ -1,34 +1,77 @@
 package model;
 
+import exceptions.OfficeFullException;
+
 public class HashTable<K, V> {
     
-    private final int MAX_SIZE = 23;
-    private TVLinkedList<K, V> table[]; 
+    private int MAX_SIZE;
+	private TVLinkedList<K, V> table[]; 
+	private boolean verify = false;
 
-    
-    public HashTable(){
-       table = (TVLinkedList<K, V>[]) new TVLinkedList<?,?>[MAX_SIZE];
-       for (int i = 0; i < MAX_SIZE; i++) {
-           TVLinkedList<K, V> l = new TVLinkedList<>();
-           table[i] = l;
-       }
-    }
 
-    public int hash(K k){
-        Integer key = 0;
-        Integer hvalue = k.hashCode();
+	@SuppressWarnings("unchecked")
+	public HashTable(){
+		MAX_SIZE = 23;
+		verify = true;
+		table = (TVLinkedList<K, V>[]) new TVLinkedList<?,?>[MAX_SIZE];
+		for (int i = 0; i < MAX_SIZE; i++) {
+			TVLinkedList<K, V> l = new TVLinkedList<>();
+			table[i] = l;
+		}
+	}
 
-        key = hvalue%MAX_SIZE;
+	@SuppressWarnings("unchecked")
+	public HashTable(int s){
+		MAX_SIZE = s;
+		table = (TVLinkedList<K, V>[]) new TVLinkedList<?,?>[MAX_SIZE];
+		for (int i = 0; i < MAX_SIZE; i++) {
+			TVLinkedList<K, V> l = new TVLinkedList<>();
+			table[i] = l;
+		}
+	}
 
-        return Math.abs(key);
-    }
+    public Integer hash(K k){
+		int c = 0;
+		Integer hvalue = k.hashCode();
+		Integer key = 0;
+		
+		
+		if(verify == true) {
+			key = hvalue%MAX_SIZE;
+		} else {
+			if(table[hvalue-1] == null) {
+				key = hvalue-1;
+			} else {
+				boolean b = false;
+				for (int i = 0; i < MAX_SIZE && b == false; i++) {
+					if(table[i] == null) {
+						key = i;
+						b = true;
+					} else {
+						c++;
+					}
+				}
+			}
+		}
+		
+		if(c == MAX_SIZE) {
+			return null;
+		} else {
+			return key;
+		}
+	}
 
-    public void put(K key, V value){
-        int hash = hash(key);
-        HNode<K,V> n = new HNode<>(key, value);
+    public void put(K key, V value) throws OfficeFullException{
+		Integer hash = hash(key);
+		
+		if(hash != null) {
+			HNode<K,V> n = new HNode<>(key, value);
 
-        table[hash].add(n);
-    }
+			table[hash].add(n);
+		} else {
+			throw new  OfficeFullException();
+		}
+	}
 
     public V get(K k){
         int hash = hash(k);
