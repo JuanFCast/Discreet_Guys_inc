@@ -1,16 +1,26 @@
 package model;
 
+import exceptions.HashMapOverFlow;
+import util.*;
+
 public class Building {
     
     private String id;
-    private HashTable<Integer, String>[] floor;
+    private HashTable<Integer, HashTable<Integer, Person>> floor;
 
-    @SuppressWarnings("unchecked")
-    public Building(String i, Queue<String> p, int f, int o){
+    public Building(String i, Queue<String> p, int f, int o) throws HashMapOverFlow{
         id = i;
-        floor = (HashTable<Integer, String>[]) new HashTable<?,?>[f];
-        for(int j = 0; j < floor.length; j++){
-            floor[j] = new HashTable<Integer, String>(o);
+        floor = new HashTable<Integer, 
+        HashTable<Integer, Person>>(f);
+
+        int tOffice = f*o;
+
+        for(int j = 0; j < f; j++){
+            floor.put(j, new HashTable<Integer, Person>());
+            for(int h = 0; h < o; h++){
+                floor.get(j).put(tOffice, null);
+                tOffice--;
+            }
         }
     }
 

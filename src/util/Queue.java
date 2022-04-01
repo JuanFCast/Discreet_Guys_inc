@@ -1,6 +1,6 @@
-package model;
+package util;
 
-import Interface.IQueue;
+import util.Interface.IQueue;
 
 //Basado en el codigo del video: https://www.youtube.com/watch?v=V5hK2T898q8&list=WL&index=33
 

@@ -1,4 +1,4 @@
-package model;
+package util;
 
 //Basado en el codigo del video: https://www.youtube.com/watch?v=R0mTivTmFr8&list=WL&index=33
 

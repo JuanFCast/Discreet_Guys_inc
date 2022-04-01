@@ -1,6 +1,6 @@
-package model;
+package util;
 
-import exceptions.OfficeFullException;
+import exceptions.HashMapOverFlow;
 
 public class HashTable<K, V> {
     
@@ -31,45 +31,41 @@ public class HashTable<K, V> {
 	}
 
     public Integer hash(K k){
-		int c = 0;
 		Integer hvalue = k.hashCode();
 		Integer key = 0;
-		
-		
+
 		if(verify == true) {
 			key = hvalue%MAX_SIZE;
 		} else {
-			if(table[hvalue-1] == null) {
-				key = hvalue-1;
-			} else {
-				boolean b = false;
-				for (int i = 0; i < MAX_SIZE && b == false; i++) {
-					if(table[i] == null) {
-						key = i;
-						b = true;
-					} else {
-						c++;
-					}
+			key = (hvalue-1)%MAX_SIZE;
+		}
+
+		return key;
+	}
+
+    public void put(K key, V value) throws HashMapOverFlow{
+		int c = 0;
+		Integer hash = hash(key);
+		
+		if(table[hash] == null) {
+			HNode<K,V> n = new HNode<>(key, value);
+			table[hash].add(n);
+		} else {
+			boolean s = false;
+
+			for(int i = 0; i < MAX_SIZE && s == false; i++){
+				if(table[i] == null){
+					HNode<K,V> n = new HNode<>(key, value);
+					table[i].add(n);
+					s = true;
+				} else{
+					c++;
 				}
 			}
 		}
-		
-		if(c == MAX_SIZE) {
-			return null;
-		} else {
-			return key;
-		}
-	}
 
-    public void put(K key, V value) throws OfficeFullException{
-		Integer hash = hash(key);
-		
-		if(hash != null) {
-			HNode<K,V> n = new HNode<>(key, value);
-
-			table[hash].add(n);
-		} else {
-			throw new  OfficeFullException();
+		if(c == MAX_SIZE){
+			throw new  HashMapOverFlow();
 		}
 	}
 
