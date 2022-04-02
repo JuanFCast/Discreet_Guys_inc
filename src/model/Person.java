@@ -6,8 +6,8 @@ public class Person {
     private Integer stillInFloor;
     private Integer stillInOffice;
 
-    public Person(){
-        name = null;
+    public Person(String name){
+        this.name = name;
         stillInFloor = null;
         stillInOffice = null;
     }

@@ -1,27 +1,26 @@
 package model;
 
-import exceptions.HashMapOverFlow;
 import util.*;
 
 public class Building {
     
     private String id;
-    private HashTable<Integer, HashTable<Integer, Person>> floor;
+    private HashTable<Integer, Floor> floors;
 
-    public Building(String i, Queue<String> p, int f, int o) throws HashMapOverFlow{
-        id = i;
-        floor = new HashTable<Integer, 
-        HashTable<Integer, Person>>(f);
+    public Building(String id, Queue<String> p, int f, int o){
+        this.id = id;
+        floors = new HashTable<>();
+        int tOffices = f*o;
 
-        int tOffice = f*o;
-
-        for(int j = 0; j < f; j++){
-            floor.put(j, new HashTable<Integer, Person>());
-            for(int h = 0; h < o; h++){
-                floor.get(j).put(tOffice, null);
-                tOffice--;
-            }
+        for(int i = 0; i < f; i++){
+            Floor fl = new Floor("Floor #" + i, o, tOffices);
+            floors.put(i, fl);
+            tOffices = tOffices - o;
         }
+    }
+
+    public Floor getAnyFloor(Integer k){
+        return floors.get(k);
     }
 
     public String getId(){

@@ -14,21 +14,35 @@ public class NodeH<T> {
         prev = null;
     }
 
+    @SuppressWarnings("unchecked")
+    public int compareTo(T i) {
+        return ((Comparable<T>) value).compareTo(i);
+    }
+
     //Getters & Setters
     public T getValue(){
         return value;
     }
-    public NodeH<T> getPrev() {
-        return prev;
-    }
-    public void setPrev(NodeH<T> p) {
-        prev = p;
-    }
-    public NodeH<T> getNext() {
+    public NodeH<T> getNext(){
         return next;
     }
-    public void setNext(NodeH<T> n) {
+    public NodeH<T> getPrev(){
+        return prev;
+    }
+
+    public void setItem(T value){
+        this.value = value;
+    }
+    public void setNext(NodeH<T> n){
         next = n;
+    }
+    public void setPrev(NodeH<T> p){
+        prev = p;
+    }
+
+    //ToString
+    public String toString(){
+        return value + "";
     }
 
 }

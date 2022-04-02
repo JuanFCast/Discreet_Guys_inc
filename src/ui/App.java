@@ -3,6 +3,7 @@ package ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+//import java.util.Hashtable;
 
 import model.Building;
 
@@ -10,6 +11,7 @@ public class App {
 
     private BufferedReader br;
     private Building[] builders;
+    //private Hashtable<Integer, String> li = new Hashtable<>();
 
     public App(){
         br = new BufferedReader(new InputStreamReader(System.in));
@@ -38,7 +40,7 @@ public class App {
         +                 "|   edificios que usara el simulador...\n"
         +                 "|   N° de Edificios: ");
         m.showMenu();
-
+        
         String b = br.readLine();
         int n = Integer.parseInt(b);
         builders = new Building[n];

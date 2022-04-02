@@ -62,6 +62,12 @@ public class TVLinkedList <K, V>{
         }
     }
 
+    public Set<HNode<K, V>> values(){
+        Set<HNode<K, V>> s = new Set<>();
+
+        return s;
+    }
+
     /*public void print(){
         if(first != null){
             System.out.print(first.getKey() + ", ");
