@@ -77,7 +77,7 @@
   </class>  
   <package id="11" language="java" name="util" project="Discreet_Guys_inc" file="/Discreet_Guys_inc/src/util" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="1516" width="1540" x="-99" y="909"/>    
+    <position height="1516" width="1476" x="-99" y="909"/>    
     <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <class id="12" language="java" name="util.HashTable" project="Discreet_Guys_inc" 
@@ -118,7 +118,7 @@
   </class>  
   <class id="16" language="java" name="util.NodeV" project="Discreet_Guys_inc" 
     file="/Discreet_Guys_inc/src/util/NodeV.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1187" y="1313"/>    
+    <position height="-1" width="-1" x="1109" y="1112"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -127,7 +127,7 @@
   </class>  
   <class id="17" language="java" name="util.Queue" project="Discreet_Guys_inc" 
     file="/Discreet_Guys_inc/src/util/Queue.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1265" y="1614"/>    
+    <position height="-1" width="-1" x="1154" y="1431"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -163,12 +163,12 @@
   </class>  
   <package id="21" language="java" name="util.Interface" project="Discreet_Guys_inc" 
     file="/Discreet_Guys_inc/src/util/Interface" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="249" width="163" x="1517" y="1693"/>    
+    <position height="249" width="163" x="1499" y="1321"/>    
     <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <interface id="22" language="java" name="util.Interface.IQueue" project="Discreet_Guys_inc" 
     file="/Discreet_Guys_inc/src/util/Interface/IQueue.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1598" y="1832"/>    
+    <position height="-1" width="-1" x="1580" y="1460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -182,7 +182,7 @@
   </package>  
   <class id="24" language="java" name="util.PriorityQueue" project="Discreet_Guys_inc" 
     file="/Discreet_Guys_inc/src/util/PriorityQueue.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1113" y="1912"/>    
+    <position height="-1" width="-1" x="1162" y="1727"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -191,7 +191,7 @@
   </class>  
   <enumeration id="25" language="java" name="util.HeapTYPE" project="Discreet_Guys_inc" 
     file="/Discreet_Guys_inc/src/util/HeapTYPE.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1342" y="2011"/>    
+    <position height="-1" width="-1" x="1167" y="2056"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -226,69 +226,74 @@
     </display>  
   </class>  
   <association id="29">    
+    <bendpoint x="855" y="1270"/>    
+    <bendpoint x="879" y="1270"/>    
+    <bendpoint x="904" y="1230"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="30" name="prev">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="30" name="builders">        
+      <attribute id="33" name="builders">        
         <position height="0" width="0" x="52" y="247"/>      
       </attribute>      
-      <multiplicity id="31" minimum="0" maximum="2147483647">        
+      <multiplicity id="34" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="52" y="247"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="32">    
+  <association id="35">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="36" name="offices">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="33" name="head"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
+      <attribute id="39" name="head">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="35">    
-    <bendpoint x="863" y="2199"/>    
-    <bendpoint x="969" y="2204"/>    
-    <bendpoint x="989" y="2120"/>    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="36" name="prevElement"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="38">    
-    <bendpoint x="1249" y="1444"/>    
-    <bendpoint x="1297" y="1444"/>    
-    <bendpoint x="1349" y="1377"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="39" name="up">        
-        <position height="0" width="0" x="400" y="-82"/>      
-      </attribute>      
-      <multiplicity id="40" minimum="0" maximum="1">        
-        <position height="0" width="0" x="400" y="-82"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="41">    
-    <bendpoint x="310" y="1269"/>    
-    <bendpoint x="358" y="1269"/>    
-    <bendpoint x="403" y="1198"/>    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="42" name="prev">        
+    <bendpoint x="843" y="1282"/>    
+    <bendpoint x="920" y="1289"/>    
+    <bendpoint x="944" y="1162"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="42" name="next">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="43" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="44">    
     <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="45" name="first">        
+      <attribute id="45" name="last">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="46" minimum="0" maximum="1">        
@@ -298,116 +303,134 @@
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="47">    
-    <end type="SOURCE" refId="17"/>    
+  <association id="47">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="48" name="elements">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <bendpoint x="863" y="2199"/>    
+    <bendpoint x="969" y="2204"/>    
+    <bendpoint x="989" y="2120"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="51" name="prevElement">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="54" name="nextElement">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="56">    
+    <end type="SOURCE" refId="24"/>    
     <end type="TARGET" refId="22"/>  
   </realization>  
-  <association id="48">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="49" name="app">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="50" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="52" name="down">        
-        <position height="0" width="0" x="400" y="-82"/>      
-      </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="400" y="-82"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="55" name="next">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="57">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="58" name="table">        
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="58" name="person">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="59" minimum="0" maximum="2147483647">        
+      <multiplicity id="59" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="60">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="61" name="head">        
+    <bendpoint x="310" y="1269"/>    
+    <bendpoint x="358" y="1269"/>    
+    <bendpoint x="403" y="1198"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="61" name="prev">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="62" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="63">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="64" name="elements"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="67" name="nextElement"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="69">    
     <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="70" name="last">        
+      <attribute id="64" name="first">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="71" minimum="0" maximum="1">        
+      <multiplicity id="65" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="72">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="22"/>  
-  </realization>  
-  <association id="73">    
+  <association id="66">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="67" name="table">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
     <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="74" name="type"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+      <attribute id="70" name="type">        
+        <position height="0" width="0" x="-175" y="45"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-175" y="45"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="72">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <association id="73">    
+    <bendpoint x="1171" y="1243"/>    
+    <bendpoint x="1219" y="1243"/>    
+    <bendpoint x="1271" y="1176"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="74" name="up">        
+        <position height="0" width="0" x="322" y="-283"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="322" y="-283"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="76">    
-    <bendpoint x="843" y="1282"/>    
-    <bendpoint x="920" y="1289"/>    
-    <bendpoint x="944" y="1162"/>    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="77" name="next">        
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="77" name="head">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="78" minimum="0" maximum="1">        
@@ -418,34 +441,39 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="79">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="80" name="person"/>      
-      <multiplicity id="81" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="80" name="down">        
+        <position height="0" width="0" x="322" y="-283"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="1">        
+        <position height="0" width="0" x="322" y="-283"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="82">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="83" name="offices"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="83" name="app">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="84" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="85">    
-    <bendpoint x="855" y="1270"/>    
-    <bendpoint x="879" y="1270"/>    
-    <bendpoint x="904" y="1230"/>    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="86" name="prev">        
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="86" name="next">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="87" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
