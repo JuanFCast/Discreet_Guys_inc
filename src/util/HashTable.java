@@ -47,13 +47,4 @@ public class HashTable<K, V> {
         HNode<K, V> n = table[hash].search(k);
         table[hash].remove(n);
     }
-
-	public void values(){
-		Set<Integer> s = new Set<>();
-
-		for (TVLinkedList<K,V> tvLinkedList : table) {
-			
-		}
-		return ;
-	}
 }

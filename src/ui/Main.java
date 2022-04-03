@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String [] team){
         Main m = new Main();
-
+        
         try {
             m.app.start();
         } catch (IOException e) {

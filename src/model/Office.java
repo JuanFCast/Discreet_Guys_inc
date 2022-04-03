@@ -4,9 +4,11 @@ public class Office {
     
     private Person person;
     private String officeID;
+    private String floor;
 
-    public Office(String offID){
+    public Office(String offID, String f){
         officeID = offID;
+        floor = f;
         person = null;
     }
 
@@ -23,6 +25,10 @@ public class Office {
 
     public boolean isEmpty(){
         return (person != null)?true:false;
+    }
+
+    public String isInFloor(){
+        return floor;
     }
 
     public String toString(){

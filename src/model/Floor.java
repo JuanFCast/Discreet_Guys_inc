@@ -13,7 +13,7 @@ public class Floor {
         int n = nOff;
 
         for(int i = 0; i < o; i++){
-            Office office = new Office("Office #" + n);
+            Office office = new Office("Office #" + n, fID);
             offices.put(n, office);
             n--;
         }
