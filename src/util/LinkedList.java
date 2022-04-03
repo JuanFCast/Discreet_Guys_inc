@@ -75,6 +75,15 @@ public class LinkedList<T> {
         }
 
     }
+    
+    
+    public T remove(int index) {
+
+        return get(index, head);
+
+    }
+    
+    
 
 
 }

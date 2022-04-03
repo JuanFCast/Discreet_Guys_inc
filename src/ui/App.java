@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 //import java.util.Hashtable;
+import java.util.LinkedList;
 
 import model.Building;
+import model.Person;
 
 public class App {
 
@@ -68,6 +70,14 @@ public class App {
             for(int i = 0; i < n; i++){
                 System.out.print("|   - Cadena de valores: ");
                 String p[] = br.readLine().split(" ");
+                
+                Person pe = new Person(p[0]);
+                pe.setFloor(Integer.parseInt(p[1]));
+                Integer oficina = Integer.parseInt(p[2]);
+                
+               
+               
+           
             }
 
             s++;
@@ -86,5 +96,7 @@ public class App {
         +                 "|===================================================\n\n");
         m.showMenu();
     }
+    
+    
 
 }
