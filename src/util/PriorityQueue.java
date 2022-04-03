@@ -114,4 +114,9 @@ public class PriorityQueue<T> implements IQueue<T>{
         }
         return s + "]";
     }
+
+    public void setType(HeapTYPE t) {
+        type = t;
+        heapify();
+    }
 }
