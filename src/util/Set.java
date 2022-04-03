@@ -67,7 +67,6 @@ public class Set <T>{
         } else if(isEmpty()){
             return null;
         } else{
-            System.out.println("Aca 3");
             List<Element<T>> list = new ArrayList<>();
             list.add(new Element<>(elements.getListofElements()));
             addToList(elements.getNext(), elements, list);
@@ -202,5 +201,5 @@ public class Set <T>{
 
         return s;
     }
-
+    
 }

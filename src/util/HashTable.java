@@ -1,13 +1,11 @@
 package util;
 
-
+@SuppressWarnings("unchecked")
 public class HashTable<K, V> {
     
     private final int MAX_SIZE = 23;
-	private TVLinkedList<K, V> table[]; 
+	private TVLinkedList<K, V> table[];
 
-
-	@SuppressWarnings("unchecked")
 	public HashTable(){
 		table = (TVLinkedList<K, V>[]) new TVLinkedList<?,?>[MAX_SIZE];
 	}
@@ -16,7 +14,7 @@ public class HashTable<K, V> {
 		Integer hvalue = k.hashCode();
 		Integer key = 0;
 		key = hvalue%MAX_SIZE;
-
+		
 		return key;
 	}
 

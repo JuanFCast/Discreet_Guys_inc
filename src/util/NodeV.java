@@ -1,6 +1,6 @@
 package util;
 
-public class NodeV<T> {
+public class NodeV<T> implements Comparable<T>{
 
     private T value;
 
@@ -12,6 +12,11 @@ public class NodeV<T> {
         value = v;
         up = null;
         down = null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public int compareTo(T i) {
+        return ((Comparable<T>) value).compareTo(i);
     }
 
     //Getters & Setters

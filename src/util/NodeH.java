@@ -1,6 +1,6 @@
 package util;
 
-public class NodeH<T> {
+public class NodeH<T> implements Comparable<T> {
 
     private T value;
 
@@ -18,7 +18,7 @@ public class NodeH<T> {
     public int compareTo(T i) {
         return ((Comparable<T>) value).compareTo(i);
     }
-
+    
     //Getters & Setters
     public T getValue(){
         return value;
