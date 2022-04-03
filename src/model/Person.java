@@ -18,6 +18,14 @@ public class Person {
         stillInOffice = o;
     }
 
+    public void setOffice(Integer o){
+        stillInOffice = o;
+    }
+
+    public void setFloor(Integer f){
+        stillInFloor = f;
+    }
+
 
     public String getName(){
         return name;
@@ -25,7 +33,7 @@ public class Person {
 
     public String toString(){
         if(name != null){
-            return name + " is on #" + stillInFloor + " floor at office" + stillInOffice;
+            return name + " is on #" + stillInFloor + " floor at the office #" + stillInOffice;
         } else{
             return "The office is Empty";
         }

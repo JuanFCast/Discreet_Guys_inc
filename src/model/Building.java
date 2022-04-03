@@ -19,14 +19,21 @@ public class Building {
         floors = new HashTable<>();
         
         for(int i = 1; i <= f; i++){
-            Floor fl = new Floor("Floor #" + i, officePerFloor, tOffices);
+            Floor fl = new Floor(i, officePerFloor, tOffices);
             floors.put(i, fl);
             tOffices = tOffices - o;
         }
     }
 
-    public Floor getAnyFloor(Integer k){
-        return floors.get(k);
+    public Floor getAnyFloor(Integer f){
+        return floors.get(f);
+    }
+
+    public Floor getFloorKnowingOffice(Integer o){
+        int toff = totalFloors*officePerFloor;
+        int floor = (int)(((toff - o))/officePerFloor)+1;
+
+        return floors.get(floor);
     }
 
     //El metodo lloron

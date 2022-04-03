@@ -3,39 +3,43 @@ package model;
 public class Office {
     
     private Person person;
-    private String officeID;
-    private String floor;
+    private Integer officeID;
+    private Integer floor;
 
-    public Office(String offID, String f){
+    public Office(Integer offID, Integer f){
         officeID = offID;
         floor = f;
         person = null;
     }
 
-    public void addPerson(String n){
-        person = new Person(n);
+    public void addPerson(Person p){
+        person = p;
     } 
 
-    public String removePerson(){
-        String s = person.getName();
+    public Person removePerson(){
+        Person p = person;
         person = null;
 
-        return s;
+        return p;
     }
 
     public boolean isEmpty(){
-        return (person != null)?true:false;
+        return (person == null)?true:false;
     }
 
-    public String isInFloor(){
+    public Integer isInFloor(){
         return floor;
+    }
+
+    public Person getPerson(){
+        return person;
     }
 
     public String toString(){
         String s = "[ " + officeID;
 
         if(person != null){
-            s += "= " +  person.getName();
+            s += " = " +  person.getName();
         } else{
             s += " is Empty";
         }
