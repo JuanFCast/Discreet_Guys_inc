@@ -1,6 +1,7 @@
 package model;
 
-import util.*;
+import util.HashTable;
+
 
 public class Building {
     
@@ -10,7 +11,7 @@ public class Building {
     private int officePerFloor;
     private int tOffices;
 
-    public Building(String id, Queue<String> p, int f, int o){
+    public Building(String id, int f, int o){
         this.id = id;
         totalFloors = f;
         officePerFloor = o;
@@ -20,7 +21,12 @@ public class Building {
         
         for(int i = 1; i <= f; i++){
             Floor fl = new Floor(i, officePerFloor, tOffices);
-            floors.put(i, fl);
+            try {
+				floors.put(i, fl);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
             tOffices = tOffices - o;
         }
     }

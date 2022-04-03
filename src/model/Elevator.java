@@ -7,19 +7,19 @@ public class Elevator{
     private PriorityQueue<Integer> elevator;
 
     // por default el elevador comienta en el piso 1, por lo que crea un MIN_HEAP por default  :D
-    public Elevator{
+    public Elevator(){
         elevator = new PriorityQueue<Integer>(HeapTYPE.MIN_HEAP);
     }
 
-    private change(String s){
+    private void change(String s){
         if(s=="up"){
-            elevator.setType(HeapTYPE.MIM_HEAP);
+            elevator.setType(HeapTYPE.MIN_HEAP);
         }else if(s=="dowm"){
             elevator.setType(HeapTYPE.MAX_HEAP);
         }
     }
 
-    private addfloors(Integer f){
+    private void addfloors(Integer f){
         elevator.add(f);
     }
 
