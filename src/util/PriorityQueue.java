@@ -91,12 +91,17 @@ public class PriorityQueue<T> implements IQueue<T>{
     //Poll return and remove the element
     @Override
     public T poll() {
-        T e = queue[0];
-        queue[0] = queue[size-1];
-        queue[size-1] = null;
-        size--;
-        heapify();
-        return e;
+        if(size > 0){
+            T e = queue[0];
+            queue[0] = queue[size-1];
+            queue[size-1] = null;
+            size--;
+            heapify();
+            return e;
+        } else{
+            return null;
+        }
+        
     }
 
     //Peek does not remove element

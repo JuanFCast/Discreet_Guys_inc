@@ -19,7 +19,7 @@ public class Building {
         officePerFloor = o;
         tOffices = f*o;
 
-        elevator = new Elevator(f);
+        elevator = new Elevator(f, mp);
         floors = new HashTable<>();
         
         for(int i = 1; i <= f; i++){
@@ -59,12 +59,37 @@ public class Building {
         return floors.get(floor).getAnyOffice(o);
     }
 
+    public void startElevator(){
+        while(elevator.isEmpty() != true) {
+            elevator.leave();
+            Queue<Person> cabin = elevator.getCabin();
+
+            for(int i = 0; i < cabin.size(); i ++){
+                Person p = cabin.poll();
+                int destination = getIndexFloorKnowingOffice(p.getDestination());
+                if(destination == elevator.getFloorStill()){
+                    getAnyFloor(destination).putAPersonInOffice(p, p.getDestination());
+                } else{
+                    cabin.add(p);
+                }
+            }
+            elevator.start();
+        }
+
+        /*try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        
+    }
+
     public void addInElevator(Person p){
         boolean b = getAnyFloor(elevator.getFloorStill()).getWaitingQueue().isEmpty();
         if(b == true){
             if(p.getFloor() == elevator.getFloorStill()){
                 int i = getIndexFloorKnowingOffice(p.getDestination());
-                elevator.addInElevator(i);
+                elevator.addInElevator(i, p);
             } else{
                 getAnyFloor(p.getFloor()).waitingForElevator(p);
             }
@@ -73,12 +98,13 @@ public class Building {
 
             for(int i = 0; i < q.size(); i++){
                 int index = getIndexFloorKnowingOffice(q.poll().getDestination());
-                elevator.addInElevator(index);
+                Person per = q.poll();
+                elevator.addInElevator(index, per);
             }
 
             if(p.getFloor() == elevator.getFloorStill()){
                 int i = getIndexFloorKnowingOffice(p.getDestination());
-                elevator.addInElevator(i);
+                elevator.addInElevator(i, p);
             } else{
                 getAnyFloor(p.getFloor()).waitingForElevator(p);
             }
@@ -88,6 +114,17 @@ public class Building {
 
     public String getId(){
         return id;
+    }
+
+    public String toString(){
+        String s = "Edificio " + id;
+        s += "\nCon pisos: \n";
+
+        for(int i = 1; i <= totalFloors; i++){
+            s += floors.get(i) + "\n";
+        }
+
+        return s;
     }
 
 }

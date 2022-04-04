@@ -5,13 +5,15 @@ import util.*;
 public class Elevator{
 
     private PriorityQueue<Integer> elevator;
+    private Queue<Person> cabin;
     private Integer stillInFloor, maxFloor, minFloor;
     private String state;
 
 
     // por default el elevador comienta en el piso 1, por lo que crea un MIN_HEAP por default  :D
-    public Elevator(int m){
+    public Elevator(int m, int t){
         elevator = new PriorityQueue<Integer>(HeapTYPE.MIN_HEAP);
+        cabin = new Queue<>(t);
         stillInFloor = 1;
         minFloor = 1;
         maxFloor = m;
@@ -26,15 +28,15 @@ public class Elevator{
         }
     }
 
-    public void addInElevator(Integer f){
+    public void addInElevator(Integer f, Person p){
         if(isEmpty() == true){
             elevator.add(f);
+            cabin.add(p);
             if(f > stillInFloor){
                 state = "up";
             } else{
                 state = "down";
             }
-            start();
         } else{
             elevator.add(f);
         }
@@ -43,18 +45,11 @@ public class Elevator{
     public void start(){
         Thread t = new Thread(){
             public void run(){
-                for(;isEmpty() == false;){
-                    controller();
-                    if(state.equals("up")){
-                        stillInFloor++;
-                    } else{
-                        stillInFloor--;
-                    }
-                    try {
-                        Thread.sleep(1200);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                controller();
+                if(state.equals("up")){
+                    stillInFloor++;
+                } else{
+                    stillInFloor--;
                 }
             }
         };
@@ -75,8 +70,12 @@ public class Elevator{
         }
     }
 
-    private Integer leave(){
+    public Integer leave(){
         return elevator.poll();
+    }
+
+    public Queue<Person> getCabin(){
+        return cabin;
     }
 
     public Integer getFloorStill(){

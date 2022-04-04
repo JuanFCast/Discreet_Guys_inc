@@ -58,9 +58,14 @@ public class Floor {
     }
 
     public String toString(){
-        String s = floorID + "with offices: \n";
+        String s = "N°" +  floorID + " with offices: |";
 
-        return s;
+        for(int i = minOff; i <= maxOff; i++){
+            s += offices.get(i);
+        }
+        
+
+        return s + "|";
     }
 
 }
