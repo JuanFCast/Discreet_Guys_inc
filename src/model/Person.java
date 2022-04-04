@@ -5,17 +5,13 @@ public class Person {
     private String name;
     private Integer stillInFloor;
     private Integer stillInOffice;
+    private Integer destinationFloor;
 
-    public Person(String name){
+    public Person(String name, Integer f){
         this.name = name;
+        destinationFloor = f;
         stillInFloor = null;
         stillInOffice = null;
-    }
-
-    public Person(String n, int f, int o){
-        name = n;
-        stillInFloor = f;
-        stillInOffice = o;
     }
 
     public void setOffice(Integer o){
@@ -26,6 +22,13 @@ public class Person {
         stillInFloor = f;
     }
 
+    public Integer getFloor(){
+        return stillInFloor;
+    }
+
+    public Integer getDestination(){
+        return destinationFloor;
+    }
 
     public String getName(){
         return name;

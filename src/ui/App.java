@@ -58,26 +58,22 @@ public class App {
             +                "|   - Cadena de valores: ");
 
             String c[] = br.readLine().split(" ");
+            int n = Integer.parseInt(c[1]);
+            builders[s-1] = new Building(c[0], Integer.parseInt(c[1]), Integer.parseInt(c[2]), Integer.parseInt(c[3]));
 
             System.out.println("\n|   - Ahora ingresaremos el nombre de cada\n"
             +                  "|     persona que se encuentra en el edificio (" + c[0] + "),\n"
             +                  "|     seguido del piso donde se encuentra y por\n"
             +                  "|     ultimo la oficina donde desea ir trasladarse\n"
             +                  "|     Ejemplo: Juan 1 4\n");
-            
-            int n = Integer.parseInt(c[1]);
 
             for(int i = 0; i < n; i++){
                 System.out.print("|   - Cadena de valores: ");
                 String p[] = br.readLine().split(" ");
                 
-                Person pe = new Person(p[0]);
-                pe.setFloor(Integer.parseInt(p[1]));
-                Integer oficina = Integer.parseInt(p[2]);
-                
-               
-               
-           
+                Person person = new Person(p[0], Integer.parseInt(p[2]));
+                person.setFloor(Integer.parseInt(p[1]));
+                builders[s-1].addInElevator(person);;
             }
 
             s++;

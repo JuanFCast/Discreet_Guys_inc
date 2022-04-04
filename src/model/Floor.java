@@ -1,19 +1,22 @@
 package model;
 
-import util.HashTable;
+import util.*;
+
 
 public class Floor {
     
     private Integer floorID;
     private HashTable<Integer, Office> offices;
     private int nOffInFloor, minOff, maxOff;
+    private Queue<Person> waitingQueue;
 
-    public Floor(int fID, int o, int nOff){
+    public Floor(int fID, int o, int nOff, int maxPeople){
         floorID = fID;
         nOffInFloor = o;
-        minOff = nOff - nOffInFloor;
+        minOff = nOff - nOffInFloor + 1;
         maxOff = nOff;
         offices = new HashTable<>();
+        waitingQueue = new Queue<>(maxPeople);
         int n = nOff;
 
         for(int i = 0; i < o; i++){
@@ -33,7 +36,7 @@ public class Floor {
             p.setFloor(floorID);
             offices.get(o).addPerson(p);
         } else{
-            for(int i = minOff+1; i <= maxOff; i++){
+            for(int i = minOff; i <= maxOff; i++){
                 if(offices.get(i).isEmpty() == true){
                     p.setOffice(i);
                     p.setFloor(floorID);
@@ -44,6 +47,14 @@ public class Floor {
         }
 
         return false;
+    }
+
+    public void waitingForElevator(Person p){
+        waitingQueue.add(p);
+    }
+
+    public Queue<Person> getWaitingQueue(){
+        return waitingQueue;
     }
 
     public String toString(){

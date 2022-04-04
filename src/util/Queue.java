@@ -3,14 +3,13 @@ package util;
 import util.Interface.IQueue;
 
 //Basado en el codigo del video: https://www.youtube.com/watch?v=V5hK2T898q8&list=WL&index=33
-
+@SuppressWarnings("unchecked")
 public class Queue<T> implements IQueue<T>{
 
 	private int last;
 	private int size;
 	private T queue[];
 
-	@SuppressWarnings("unchecked")
 	public Queue(int m){
 		size = m;
 		last = -1;
@@ -24,6 +23,7 @@ public class Queue<T> implements IQueue<T>{
 		}else{
 			last++;
 			queue[last] = element;
+
 			return true;
 		}
 	}
@@ -50,6 +50,14 @@ public class Queue<T> implements IQueue<T>{
 		}else{
 			return queue[0];
 		}
+	}
+
+	public int size(){
+		return last+1;
+	}
+
+	public boolean isEmpty(){
+		return (queue[0] == null)?true:false;
 	}
 
 }

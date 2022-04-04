@@ -30,6 +30,11 @@ public class PriorityQueue<T> implements IQueue<T>{
         return true;
     }
 
+    public void setType(HeapTYPE t) {
+        type = t;
+        heapify();
+    }
+
     private void heapify(){
         for(int i = size-1; i > 0; i--){
             if(type == HeapTYPE.MAX_HEAP){
@@ -79,7 +84,7 @@ public class PriorityQueue<T> implements IQueue<T>{
             T aux = q[i];
             q[i] = q[parent];
             q[parent] = aux;
-            MinHeapify(q, i);
+            MinHeapify(q, smaller);
         }
     }
     
@@ -104,6 +109,10 @@ public class PriorityQueue<T> implements IQueue<T>{
         queue = Arrays.copyOf(queue, MAX_SIZE*2);
     }
 
+    public boolean isEmpty(){
+        return (queue[0] == null)?true:false;
+    }
+
     public String toString(){
         String s = "[";
         for (T i : queue) {
@@ -115,8 +124,4 @@ public class PriorityQueue<T> implements IQueue<T>{
         return s + "]";
     }
 
-    public void setType(HeapTYPE t) {
-        type = t;
-        heapify();
-    }
 }
