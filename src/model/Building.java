@@ -64,14 +64,22 @@ public class Building {
             elevator.leave();
             Queue<Person> cabin = elevator.getCabin();
 
-            for(int i = 0; i < cabin.size(); i ++){
+            int s = 0;
+
+            while(s <= cabin.size()){
+                
                 Person p = cabin.poll();
-                int destination = getIndexFloorKnowingOffice(p.getDestination());
+
+                    int destination = getIndexFloorKnowingOffice(p.getDestination());
                 if(destination == elevator.getFloorStill()){
-                    getAnyFloor(destination).putAPersonInOffice(p, p.getDestination());
+                //System.out.println(p.getName() + " se va a " + getAnyFloor(destination));
+                     getAnyFloor(destination).putAPersonInOffice(p, p.getDestination());
                 } else{
+                //System.out.println(p.getName() + " vuelve a esperar");
                     cabin.add(p);
+                    s--;
                 }
+                s++;
             }
             elevator.start();
         }
@@ -85,28 +93,33 @@ public class Building {
     }
 
     public void addInElevator(Person p){
+
         boolean b = getAnyFloor(elevator.getFloorStill()).getWaitingQueue().isEmpty();
         if(b == true){
             if(p.getFloor() == elevator.getFloorStill()){
                 int i = getIndexFloorKnowingOffice(p.getDestination());
                 elevator.addInElevator(i, p);
+                elevator.start();
             } else{
                 getAnyFloor(p.getFloor()).waitingForElevator(p);
+                elevator.start();
             }
         } else{
             Queue<Person> q = getAnyFloor(elevator.getFloorStill()).getWaitingQueue();
 
             for(int i = 0; i < q.size(); i++){
-                int index = getIndexFloorKnowingOffice(q.poll().getDestination());
                 Person per = q.poll();
+                int index = getIndexFloorKnowingOffice(per.getDestination());
                 elevator.addInElevator(index, per);
             }
 
             if(p.getFloor() == elevator.getFloorStill()){
                 int i = getIndexFloorKnowingOffice(p.getDestination());
                 elevator.addInElevator(i, p);
+                elevator.start();
             } else{
                 getAnyFloor(p.getFloor()).waitingForElevator(p);
+                elevator.start();
             }
         }
     }

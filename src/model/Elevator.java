@@ -20,7 +20,7 @@ public class Elevator{
         state = "still";
     }
 
-    private void change(String s){
+    private void change(){
         if(state.equals("up")){
             elevator.setType(HeapTYPE.MIN_HEAP);
         }else if(state.equals("down")){
@@ -39,6 +39,7 @@ public class Elevator{
             }
         } else{
             elevator.add(f);
+            cabin.add(p);
         }
     }
 
@@ -59,13 +60,13 @@ public class Elevator{
     private void controller(){
         if(minFloor != maxFloor){
             if(stillInFloor == maxFloor){
-                change("down");
                 state = "down";
+                change();
             }
     
             if(stillInFloor == minFloor){
-                change("up");
                 state = "up";
+                change();
             }
         }
     }
@@ -84,6 +85,10 @@ public class Elevator{
 
     public boolean isEmpty(){
         return elevator.isEmpty();
+    }
+
+    public void putInCabin(Person p){
+        cabin.add(p);
     }
 
 }

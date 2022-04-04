@@ -74,6 +74,7 @@ public class App {
                 Person person = new Person(p[0], Integer.parseInt(p[2]));
                 person.setFloor(Integer.parseInt(p[1]));
                 builders[s-1].addInElevator(person);;
+                
             }
 
             builders[s-1].startElevator();
