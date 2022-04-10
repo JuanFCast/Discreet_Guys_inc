@@ -53,10 +53,8 @@ public class PriorityQueue<T> implements IQueue<T>{
         NodeH<T> p = new NodeH<>(q[parent]);
 
         if(p.compareTo(q[i]) < 0){
-            //System.out.println("Hijo (" + q[i] + ") mayor al padre (" + q[parent] + ")");
             largest = i;
         } else{
-            //System.out.println("Padre (" + q[parent] + ") mayor al hijo (" + q[i] + ")");
             largest = parent;
         }
 
@@ -116,6 +114,23 @@ public class PriorityQueue<T> implements IQueue<T>{
 
     public boolean isEmpty(){
         return (queue[0] == null)?true:false;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public T element(){
+        return (!isEmpty())?queue[0]:null;
+    }
+
+    public boolean contains(T element){
+        for (T e : queue) {
+            if(e.equals(element)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public String toString(){

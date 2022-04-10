@@ -12,17 +12,17 @@ public class Queue<T> implements IQueue<T>{
 
 	public Queue(int m){
 		size = m;
-		last = -1;
+		last = 0;
 		queue = (T[]) new Object[size];
 	}
 
 	@Override
 	public boolean add(T element) {
-		if(last==size-1){
+		if(last == size+1){
 			return false;
 		}else{
-			last++;
 			queue[last] = element;
+			last++;
 
 			return true;
 		}
@@ -30,22 +30,22 @@ public class Queue<T> implements IQueue<T>{
 
 	@Override
 	public T poll() {
-		if(last==-1){
+		if(last == 0){
 			return null;
 		}else{
 			T aux = queue[0];
 			for(int i = 0; i < size-1; i++){
 				queue[i] = queue[i+1];
 			}
-			queue[last] = null;
 			last--;
+			queue[last] = null;
 			return aux;
 		}
 	}
 
 	@Override
 	public T peek() {
-		if(last==-1){
+		if(last == 0){
 			return null;
 		}else{
 			return queue[0];
@@ -53,11 +53,21 @@ public class Queue<T> implements IQueue<T>{
 	}
 
 	public int size(){
-		return last+1;
+		return last;
 	}
 
 	public boolean isEmpty(){
 		return (queue[0] == null)?true:false;
+	}
+
+	public String toString(){
+		String s = "[";
+
+		for(int i = 0; i < last; i++){
+			s += queue[i] + "|";
+		}
+
+		return s + "]";
 	}
 
 }

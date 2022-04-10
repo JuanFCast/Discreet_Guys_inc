@@ -3,13 +3,13 @@ package model;
 public class Person {
     
     private String name;
-    private Integer stillInFloor;
-    private Integer stillInOffice;
-    private Integer destinationFloor;
+    private Integer stillInFloor, stillInOffice, 
+    destinationFloor, destinationOffice;
 
-    public Person(String name, Integer f){
+    public Person(String name, Integer f, Integer o){
         this.name = name;
         destinationFloor = f;
+        destinationOffice = o;
         stillInFloor = null;
         stillInOffice = null;
     }
@@ -27,8 +27,13 @@ public class Person {
     }
 
     public Integer getDestination(){
+        return destinationOffice;
+    }
+
+    public Integer whereIsMyOffice(){
         return destinationFloor;
     }
+
 
     public String getName(){
         return name;

@@ -18,7 +18,7 @@ public class App {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public void start() throws IOException{
+    public void start() throws IOException, InterruptedException{
         logoMenu();
         startMenu();
         ConstructApp();
@@ -49,7 +49,7 @@ public class App {
         System.out.println("|===================================================");
     }
 
-    private void ConstructApp() throws IOException{
+    private void ConstructApp() throws IOException, InterruptedException{
         rulesApp();
         int s = 1;
 
@@ -71,13 +71,12 @@ public class App {
                 System.out.print("|   - Cadena de valores: ");
                 String p[] = br.readLine().split(" ");
                 
-                Person person = new Person(p[0], Integer.parseInt(p[2]));
+                Integer f = builders[s-1].getIndexFloorKnowingOffice(Integer.parseInt(p[2]));
+                Integer o = Integer.parseInt(p[2]);
+                Person person = new Person(p[0], f, o);
                 person.setFloor(Integer.parseInt(p[1]));
                 builders[s-1].addInElevator(person);;
-                
             }
-
-            builders[s-1].startElevator();
             s++;
         }
     }

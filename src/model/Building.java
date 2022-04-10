@@ -44,7 +44,7 @@ public class Building {
         return floors.get(floor);
     }
 
-    private Integer getIndexFloorKnowingOffice(Integer o){
+    public Integer getIndexFloorKnowingOffice(Integer o){
         int toff = totalFloors*officePerFloor;
         int floor = (int)(((toff - o))/officePerFloor)+1;
 
@@ -59,69 +59,46 @@ public class Building {
         return floors.get(floor).getAnyOffice(o);
     }
 
-    public void startElevator(){
-        while(elevator.isEmpty() != true) {
-            elevator.leave();
-            Queue<Person> cabin = elevator.getCabin();
 
-            int s = 0;
-
-            while(s <= cabin.size()){
-                
-                Person p = cabin.poll();
-
-                    int destination = getIndexFloorKnowingOffice(p.getDestination());
-                if(destination == elevator.getFloorStill()){
-                //System.out.println(p.getName() + " se va a " + getAnyFloor(destination));
-                     getAnyFloor(destination).putAPersonInOffice(p, p.getDestination());
-                } else{
-                //System.out.println(p.getName() + " vuelve a esperar");
-                    cabin.add(p);
-                    s--;
-                }
-                s++;
-            }
-            elevator.start();
+    public void addInElevator(Person p) throws InterruptedException{
+        if(elevator.isEmpty()){
+            elevator.addInElevator(getIndexFloorKnowingOffice(p.getDestination()), p);
+            startElevator();
+        } else{
+            elevator.addInElevator(getIndexFloorKnowingOffice(p.getDestination()), p);
         }
-
-        /*try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
         
     }
 
-    public void addInElevator(Person p){
+    //Por aca ando
+    private void startElevator() throws InterruptedException{
+        Thread t = new Thread() {
+			public void run() {
+				for(; elevator.isEmpty() == false;){
+                    Queue<Person> q = elevator.leave();
+                
+                    if(q != null){
+                        Person p = q.peek();
+                        do{
+                            p = q.poll();
+                            int f = elevator.getFloorStill();
+                            getAnyFloor(f).putAPersonInOffice(p, p.getDestination());
+                            p = q.peek();
+                        }while(p != null);
+                    }
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {}
+				}
+			};
+		};
 
-        boolean b = getAnyFloor(elevator.getFloorStill()).getWaitingQueue().isEmpty();
-        if(b == true){
-            if(p.getFloor() == elevator.getFloorStill()){
-                int i = getIndexFloorKnowingOffice(p.getDestination());
-                elevator.addInElevator(i, p);
-                elevator.start();
-            } else{
-                getAnyFloor(p.getFloor()).waitingForElevator(p);
-                elevator.start();
-            }
-        } else{
-            Queue<Person> q = getAnyFloor(elevator.getFloorStill()).getWaitingQueue();
+		t.start();
+        t.join();
+    }
 
-            for(int i = 0; i < q.size(); i++){
-                Person per = q.poll();
-                int index = getIndexFloorKnowingOffice(per.getDestination());
-                elevator.addInElevator(index, per);
-            }
-
-            if(p.getFloor() == elevator.getFloorStill()){
-                int i = getIndexFloorKnowingOffice(p.getDestination());
-                elevator.addInElevator(i, p);
-                elevator.start();
-            } else{
-                getAnyFloor(p.getFloor()).waitingForElevator(p);
-                elevator.start();
-            }
-        }
+    public boolean elevatorIsEmpty(){
+        return elevator.isEmpty();
     }
 
 
