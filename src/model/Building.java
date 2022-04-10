@@ -12,6 +12,7 @@ public class Building {
     private int officePerFloor;
     private int tOffices;
     private Elevator elevator;
+    private Queue<Person> peopleWithoutOffice;
 
     public Building(String id, int mp, int f, int o){
         this.id = id;
@@ -21,6 +22,7 @@ public class Building {
 
         elevator = new Elevator(f, mp);
         floors = new HashTable<>();
+        peopleWithoutOffice = new Queue<>(mp-1);
         
         for(int i = 1; i <= f; i++){
             Floor fl = new Floor(i, officePerFloor, tOffices, mp);
@@ -82,7 +84,12 @@ public class Building {
                         do{
                             p = q.poll();
                             int f = elevator.getFloorStill();
-                            getAnyFloor(f).putAPersonInOffice(p, p.getDestination());
+                            boolean v = getAnyFloor(f).putAPersonInOffice(p, p.getDestination());
+                            
+                            if(v == false){
+                                peopleWithoutOffice.add(p);
+                            }
+                            
                             p = q.peek();
                         }while(p != null);
                     }
@@ -112,6 +119,17 @@ public class Building {
 
         for(int i = 1; i <= totalFloors; i++){
             s += floors.get(i) + "\n";
+        }
+
+        if(peopleWithoutOffice.isEmpty() == false){
+            s+= "People without office = [ | ";
+            Person p = peopleWithoutOffice.peek();
+            do{
+                p = peopleWithoutOffice.poll();
+                s += p.getName() + " | ";             
+                p = peopleWithoutOffice.peek();
+            }while(p != null);
+            s += "]";
         }
 
         return s;

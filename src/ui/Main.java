@@ -9,7 +9,6 @@ public class Main {
         app = new App();
     }
 
-    //PUSE WHILE Y CAMBIE DE LUGAR EL STARTER
     public static void main(String [] team){
         Main m = new Main();
         

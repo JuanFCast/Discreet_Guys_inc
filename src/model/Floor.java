@@ -35,6 +35,7 @@ public class Floor {
             p.setOffice(o);
             p.setFloor(floorID);
             offices.get(o).addPerson(p);
+            return true;
         } else{
             for(int i = minOff; i <= maxOff; i++){
                 if(offices.get(i).isEmpty() == true){
